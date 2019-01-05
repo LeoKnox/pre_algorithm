@@ -1,0 +1,17 @@
+var amt=353;
+var change = {
+  dollar:100,
+  quarter:25,
+  dime:10,
+  nickel:5,
+  penny:1
+};
+var newarr = [];
+
+for (var item in change) {
+  if (Math.floor(amt/change[item])>0) {
+    newarr.push(item+" : "+ Math.floor(amt/change[item]));
+  }
+    amt = amt - (Math.floor(amt/change[item])*change[item]);
+}
+console.log(newarr);
