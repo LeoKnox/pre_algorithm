@@ -1,0 +1,17 @@
+arr = [1, -2, 9, 4];
+sum = arr[0];
+lar = arr[0];
+sma = arr[0];
+if (arr.length>0) {
+  for (var x = 1; x < arr.length; x++) {
+    sum += arr[x];
+    if (arr[x]>lar) {
+      lar = arr[x];
+    } else if (arr[x]<sma) {
+      sma = arr[x];
+    }
+  }
+  console.log('Largest = ' + lar);
+  console.log('Smallest = ' + sma);
+  console.log('averge = ' + (sum/arr.length));
+}
