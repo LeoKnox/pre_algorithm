@@ -1,0 +1,15 @@
+str = "[{([({})])}]";
+newarr = [];
+for (var x = 0; x<str.length; x++) {
+  if ((str[x] == '(')||(str[x] == '[')||(str[x] == '{')){
+    newarr.push(str[x]);
+  } else if ((str[x] == ')')||(str[x] == '}')||(str[x] == ']')) {
+    newarr.pop();
+  }
+}
+if (newarr.length == 0) {
+  console.log('true');
+} else {
+  console.log('false');
+}
+console.log(newarr);
