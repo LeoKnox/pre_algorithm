@@ -1,0 +1,22 @@
+newarr = [2, 3, 5, 19, 38, 40, 42, 43, 44, 58, 63, 69, 71, 86, 94, 108, 119, 137, 141, 142, 146, 152, 153, 157, 168, 174, 177, 180, 184, 191, 192];
+
+var val = 40;
+var st = 0;
+var bg = newarr.length-1;
+
+index = st+Math.floor((bg-st)/2);
+
+while ((bg!=st) || (newarr[index]!=val)) {
+  if (val > newarr[index]) {
+    st = index;
+  } else {
+    bg = index;
+  }
+  index = st+Math.floor((bg-st)/2);
+}
+
+if (newarr[bg]==val) {
+  console.log(bg);
+} else {
+  console.log('-1');
+}
