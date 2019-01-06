@@ -1,0 +1,85 @@
+var tigger = {character: "Tigger",
+             greet: "The wonderful ..."};
+var piglet = {character: "Piglet",
+             greet: "Hi i'm piglet"};
+var pooh = {character: "Winnie the Pooh",
+             greet: "Hi i'm Pooh"};
+var bees = {character: "Bees",
+             greet: "bzz"};
+var owl = {character: "Owl",
+             greet: "who"};
+var chris = {character: "Christopher Robin",
+            greet: "I'm the main char"};
+var rabbit = {character: "Rabbit",
+             greet: "Hop hop hop"};
+var gopher = {character: "Gopher",
+             greet: "dig dig dig"};
+var kanga = {character: "Kanga",
+            greet: "dog dog dog"};
+var eeyore = {character: "Eeyore",
+             greet: "e or or"};
+var heffa = {character: "Heffalumps",
+            greet: "the end"};
+
+tigger.north = pooh;
+pooh.west = piglet;
+pooh.east = bees;
+pooh.north = chris;
+pooh.south = tigger;
+piglet.east = pooh;
+piglet.north = owl;
+bees.west = pooh;
+bees.north = rabbit;
+owl.south = piglet;
+owl.east = chris;
+chris.south = pooh;
+chris.east = rabbit;
+chris.north = kanga;
+chris.west = owl;
+rabbit.east = gopher;
+rabbit.west = chris;
+rabbit.south = bees;
+gopher.west = rabbit;
+kanga.south = chris;
+kanga.north = eeyore;
+eeyore.south = kanga;
+eeyore.east = heffa;
+heffa.west = eeyore;
+
+var player = {location: tigger,
+              honey: false};
+
+console.log('You are at ' + player.location.character + "'s house.");
+console.log(player.location.greet);
+
+function pickup() {
+  if ((!player.honey)&&(player.location.character == 'Bees')) {
+    console.log("You picked up honey.");
+    player.honey = true;
+  } else if ((player.honey)&&(player.location.character == 'Bees')) {
+    console.log("You already have honey");
+  } else {
+    console.log('No bees here');
+  }
+}
+
+function drop() {
+  if ((player.honey)&&(player.location.character == 'Winnie the Pooh')) {
+    console.log("You drop off honey at Pooh's");
+    player.honey = false;
+  } else if ((player.honey)&&(player.location.character != 'Winnie the Pooh')) {
+    console.log("This isn't Pooh's house");
+  } else {
+    console.log("You don't have honey");
+  }
+}
+
+function move(dir) {
+  if (player.location[dir]!=null) {
+    player.location = player.location[dir];
+    console.log('You are at ' + player.location.character + "'s house.");
+    console.log(player.location.greet);
+  } else {
+    console.log('Invalid move.');
+  }
+}
